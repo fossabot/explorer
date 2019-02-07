@@ -26,6 +26,7 @@
     "client": "file:client",
     "common": "file:common",
     "daemon": "file:daemon",
+    "react-dom": "^16.8.1",
     "tree-api": "file:tree-api",
     "user-api": "file:user-api"
   },
