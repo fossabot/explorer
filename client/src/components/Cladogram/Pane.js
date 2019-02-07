@@ -5,7 +5,7 @@ import Link from '../Link';
 import history from '../../core/history';
 import { Citation as AttributionsCitation } from '../Citation';
 import s from './Cladogram.css';
-
+import strings from '../../i18n/all';
 export default class Pane extends React.Component {
 
   static propTypes = {
@@ -65,16 +65,16 @@ export default class Pane extends React.Component {
         <hr />
         <ButtonToolbar>
           <Button bsStyle="success" bsSize="xsmall" onClick={(e) => this.onView(e)}>
-            <Glyphicon glyph="search" /> View
+            <Glyphicon glyph="search" /> {strings.view}
           </Button>
           <Button bsStyle="info" bsSize="xsmall" onClick={(e) => this.onUpdate(e)}>
-            <Glyphicon glyph="pencil" /> Update
+            <Glyphicon glyph="pencil" /> {strings.update}
           </Button>
           <Button bsStyle="primary" bsSize="xsmall" onClick={(e) => this.onCreate(e)}>
-            <Glyphicon glyph="random" /> Evolve
+            <Glyphicon glyph="random" /> {strings.evolve}
           </Button>
           <Button bsStyle="danger" bsSize="xsmall" onClick={(e) => this.onDestroy(e)}>
-            <Glyphicon glyph="trash" /> Destroy
+            <Glyphicon glyph="trash" /> {strings.destroy}
           </Button>
         </ButtonToolbar>
       </Popover>
