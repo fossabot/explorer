@@ -18,4 +18,6 @@ script:
   - mongoimport -d phylex-public -c clades ./dump/clades.json
   - npm run build
   - npx pm2 start ecosystem.config.js
+  - tail -n 40 ~/.pm2/logs/client-error.log
   - ./node_modules/cypress/bin/cypress run
+  - tail -n 40 ~/.pm2/logs/client-error.log

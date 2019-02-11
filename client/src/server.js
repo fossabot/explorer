@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 import expressJwt from 'express-jwt';
 import compression from 'compression';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/server';
 import UniversalRouter from 'universal-router';
 import PrettyError from 'pretty-error';
 import Html from './components/Html';
