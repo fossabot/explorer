@@ -17,9 +17,9 @@ let title = '';
 class UserForm extends React.Component {
 
   static propTypes = {
-    user: React.PropTypes.any,
-    activeRoles: React.PropTypes.array,
-    mode: React.PropTypes.string,
+    user: PropTypes.any,
+    activeRoles: PropTypes.array,
+    mode: PropTypes.string,
   };
 
   constructor(props, context) {
