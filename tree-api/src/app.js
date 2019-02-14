@@ -4,7 +4,7 @@ import path from 'path';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import routes from './routes/index';
+import Routes from './routes/index';
 import { Server } from './modules';
 
 const app = express();
@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 
 
 // load all routes
-routes(app);
+Routes(app);
 
 
 // catch 404 and forward to error handler

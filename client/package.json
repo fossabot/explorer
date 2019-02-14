@@ -44,7 +44,7 @@
     "react": "16.8.1",
     "react-autocomplete": "^1.4.0",
     "react-bootstrap": "^0.32.4",
-    "react-16-bootstrap-date-picker": "5.1.2",
+    "react-16-bootstrap-date-picker": "^5.1.2",
     "react-dom": "16.8.1",
     "react-dropzone": "^3.7.3",
     "react-localization": "^1.0.13",
