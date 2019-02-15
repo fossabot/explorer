@@ -1,6 +1,6 @@
 import LocalizedStrings from 'react-localization';
 import frenchStrings from './fr'
-export const localisedStringsTuple = new LocalizedStrings({
+export const strings = new LocalizedStrings({
  en:{
 	clade: {  operations: {
       		      "view":"foo",
