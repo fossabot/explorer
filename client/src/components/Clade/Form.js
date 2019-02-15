@@ -104,10 +104,10 @@ class Form extends React.Component {
   static validateAttribution(attribution) {
     attribution.errors = [];
 
-    if (!attribution.name) attribution.errors.push({strings.clade.form.missing_name});
-    if (!attribution.date) attribution.errors.push({strings.clade.form.missing_date});
+    if (!attribution.name) attribution.errors.push(strings.clade.form.missing_name);
+    if (!attribution.date) attribution.errors.push(strings.clade.form.missing_date);
     if (attribution.type === AttributionType.Emended && !attribution.emendedOldName) {
-      attribution.errors.push({strings.clade.form.missing_old_name});
+      attribution.errors.push(strings.clade.form.missing_old_name);
     }
 
     return (attribution.errors.length === 0);
@@ -119,8 +119,8 @@ class Form extends React.Component {
 
   validate() {
     let errors = [];
-    if (this.state.extant === null) errors.push({strings.clade.form.select_status});
-    if (!this.validateAttributions()) errors.push({strings.clade.form.error});
+    if (this.state.extant === null) errors.push(strings.clade.form.select_status);
+    if (!this.validateAttributions()) errors.push(strings.clade.form.error);
 
     this.setState({errors});
     return errors.length === 0;
