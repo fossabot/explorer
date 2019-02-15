@@ -15,11 +15,12 @@ import history from '../../core/history';
 import Pane from './Pane';
 import Search from '../../components/Search';
 import Request from '../../core/Request';
+import strings from '../../i18n/all';
 
 const HEADER_HEIGHT = 62;
 
-const resetViewTooltip = (<Tooltip>Reset Zoom / Center Cladogram</Tooltip>);
-const depthTooltip = (<Tooltip>Depth</Tooltip>);
+const resetViewTooltip = (<Tooltip>{strings.clade.reset}</Tooltip>);
+const depthTooltip = (<Tooltip>{strings.clade.depth}</Tooltip>);
 
 class Cladogram extends React.Component {
   static propTypes = {
@@ -114,7 +115,7 @@ class Cladogram extends React.Component {
             <Search
               id="search"
               name="search"
-              placeholder="Search for Clade"
+              placeholder={strings.clade.search}
               onSelect={(id, value) => this.onSelectClade(id, value)}
               onSearch={(name, cb) => this.onSearchClade(name, cb)}
               inline

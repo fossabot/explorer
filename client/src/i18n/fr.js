@@ -1,6 +1,19 @@
 export const frenchStrings = {
-   how:"Come vuoi il tuo uovo oggi?",
-   boiledEgg:"Uovo sodo",
-   softBoiledEgg:"Uovo alla coque",
-   choice:"Come scegliere l'uovo"
- }
+ clade: {
+         operations: {
+             "view":"foo",
+              "update":"bar",
+              "evolve":"baz",
+              "destroy":"yolo",
+             },
+         navigation: {
+           edit: "Edit",
+           return_to_tree: "Return to tree",
+         },
+         search:"Search for Clade",
+         depth:"Depth",
+         reset:"Reset Zoom / Center Cladogram",
+         alternate: "Alternate Names:",
+         wiki: "Lookup In Wikipedia",
+        },
+}

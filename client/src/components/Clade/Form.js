@@ -104,10 +104,10 @@ class Form extends React.Component {
   static validateAttribution(attribution) {
     attribution.errors = [];
 
-    if (!attribution.name) attribution.errors.push('Missing attribution name.');
-    if (!attribution.date) attribution.errors.push('Missing attribution date.');
+    if (!attribution.name) attribution.errors.push({strings.clade.form.missing_name});
+    if (!attribution.date) attribution.errors.push({strings.clade.form.missing_date});
     if (attribution.type === AttributionType.Emended && !attribution.emendedOldName) {
-      attribution.errors.push('Missing the old name.');
+      attribution.errors.push({strings.clade.form.missing_old_name});
     }
 
     return (attribution.errors.length === 0);
@@ -119,8 +119,8 @@ class Form extends React.Component {
 
   validate() {
     let errors = [];
-    if (this.state.extant === null) errors.push('Please select a status (Extant/Extinct)');
-    if (!this.validateAttributions()) errors.push('Error in one or more attributions.');
+    if (this.state.extant === null) errors.push({strings.clade.form.select_status});
+    if (!this.validateAttributions()) errors.push({strings.clade.form.error});
 
     this.setState({errors});
     return errors.length === 0;
@@ -392,13 +392,13 @@ class Form extends React.Component {
 
               <ButtonToolbar className={s.controls}>
                 <Button type="button" bsStyle="success" onClick={(e) => this.onView(e)} disabled={this.state.submitting}>
-                  Back to View
+                  {strings.clade.form.back}
                 </Button>
                 <Button type="submit" bsStyle={this.getButtonStyle()} disabled={this.state.submitting}>
                   {this.props.mode}
                 </Button>
                 <Button type="button" bsStyle="warning" onClick={(e) => this.onCancel(e)} disabled={this.state.submitting}>
-                  Cancel
+                  {strings.clade.form.cancel}
                 </Button>
               </ButtonToolbar>
 
@@ -412,7 +412,7 @@ class Form extends React.Component {
                 </p>
               }
 
-              <h1>{this.props.mode} Clade <i>{this.props.clade ? this.props.clade.name || '[UNNAMED]' : ''}</i></h1>
+              <h1>{this.props.mode} {strings.clade.form.clade} <i>{this.props.clade ? this.props.clade.name || '[UNNAMED]' : ''}</i></h1>
 
               <hr />
 
@@ -420,11 +420,11 @@ class Form extends React.Component {
                 this.props.mode === 'Update' &&
                 <Alert bsStyle="warning">
                   <FormGroup controlId="parent" className={s.parent_form_group}>
-                    <ControlLabel>Set New Parent</ControlLabel>
+                    <ControlLabel>{strings.clade.form.set_new_parent}</ControlLabel>
                     <Search
                       id="newParent"
                       name="newParent"
-                      placeholder="Start typing the parent's name"
+                      placeholder={strings.clade.form.parents_name}
                       onSelect={(id, value) => this.onSelectParent(id, value)}
                       onSearch={(name, cb) => this.onSearch(name, cb)}
                     />
@@ -433,9 +433,9 @@ class Form extends React.Component {
               }
 
               <FormGroup controlId="name">
-                <ControlLabel>Name</ControlLabel>
+                <ControlLabel>{strings.clade.form.name}</ControlLabel>
                 <FormControl
-                  placeholder="Name"
+                  placeholder={strings.clade.form.name}
                   type="text"
                   value={this.state.name}
                   onChange={(e) => this.onChange(e)}
@@ -444,9 +444,9 @@ class Form extends React.Component {
               </FormGroup>
 
               <FormGroup controlId="otherNames">
-                <ControlLabel>Alternative names</ControlLabel>
+                <ControlLabel>{strings.clade.form.alt_names}</ControlLabel>
                 <FormControl
-                  placeholder="Alternative names"
+                  placeholder={strings.clade.form.alt_names}
                   type="text"
                   value={this.state.otherNames}
                   onChange={(e) => this.onChange(e)}
@@ -455,7 +455,7 @@ class Form extends React.Component {
               </FormGroup>
 
               <FormGroup>
-                <ControlLabel>Status</ControlLabel>
+                <ControlLabel>{strings.clade.form.stat}</ControlLabel>
                 <div>
                   <ToggleButtonGroup
                     type="radio"
@@ -471,7 +471,7 @@ class Form extends React.Component {
               </FormGroup>
 
               <FormGroup controlId="description">
-                <ControlLabel>Description</ControlLabel>
+                <ControlLabel>{strings.clade.form.description}</ControlLabel>
                 <PhylexEditor
                   initialValue={this.state.description}
                   onChange={this.onDescriptionChange}
@@ -480,7 +480,7 @@ class Form extends React.Component {
               </FormGroup>
 
               <FormGroup controlId="attributions">
-                <ControlLabel>Attributions</ControlLabel>
+                <ControlLabel>{strings.clade.form.attributions}</ControlLabel>
                 <AttributionBuilder
                   attributions={this.state.attributions}
                   onAttributionsChange={this.onAttributionsChange}
@@ -490,7 +490,7 @@ class Form extends React.Component {
               </FormGroup>
 
               <FormGroup>
-                <ControlLabel>Clade Images</ControlLabel>
+                <ControlLabel>{strings.clade.form.clade_images}</ControlLabel>
                 <Grid>
                   <Row className="show-grid">
                     <Col xs={12} md={3}>
@@ -500,7 +500,7 @@ class Form extends React.Component {
                         className={s.dropzone}
                       >
                         <div className={s.helpText}>
-                          Drop Images Here<br/>
+                          {strings.clade.form.drop_images}<br/>
                           <b>.png, .jpg, .tiff</b>
                         </div>
                       </Dropzone>
@@ -509,7 +509,7 @@ class Form extends React.Component {
                       <Row>
                         <Col xs={12} md={12}>
                           {this.state.assets.length > 0 ? <div>
-                            <h3>Uploaded Images: {this.state.assets.length}</h3>
+                            <h3>{strings.clade.form.uploaded_images} {this.state.assets.length}</h3>
                             {this.state.assets.map((asset, j) =>
                               <div key={j} className={s.thumbnail}>
                                 <Image
@@ -553,7 +553,7 @@ class Form extends React.Component {
                   {this.props.mode}
                 </Button>
                 <Button type="button" bsStyle="warning" onClick={(e) => this.onCancel(e)} disabled={this.state.submitting}>
-                  Cancel
+                  {strings.clade.form.cancel}
                 </Button>
               </ButtonToolbar>
 

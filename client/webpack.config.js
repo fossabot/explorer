@@ -243,7 +243,7 @@ module.exports = (env) => {
       // https://webpack.github.io/docs/list-of-plugins.html#occurrenceorderplugin
       new webpack.optimize.OccurrenceOrderPlugin(true),
 
-      ...env.IS_LOCAL ? [] : [
+      ...(env.IS_LOCAL ? [] : [
 
         // Search for equal or similar files and deduplicate them in the output
         // https://webpack.github.io/docs/list-of-plugins.html#dedupeplugin
@@ -261,7 +261,7 @@ module.exports = (env) => {
         // A plugin for a more aggressive chunk merging strategy
         // https://webpack.github.io/docs/list-of-plugins.html#aggressivemergingplugin
         new webpack.optimize.AggressiveMergingPlugin(),
-      ],
+      ]),
     ],
 
     // Choose a developer tool to enhance debugging

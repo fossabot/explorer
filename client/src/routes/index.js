@@ -1,5 +1,5 @@
 import React from 'react';
-import App from '../components/App';
+import App from '../components/App/App.js';
 
 // Child routes
 import home from './home';
@@ -44,7 +44,7 @@ export default {
     const component = await next();
     if (typeof(component) === "undefined") return component;
     return render(
-      <App context={context}>
+      <App context={context}>>
         {component}
       </App>
     );

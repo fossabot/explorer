@@ -12,6 +12,7 @@ import s from './View.css';
 import history from '../../core/history';
 import S3 from 'common/aws/s3/Frontend';
 import { Citation as AttributionsCitation } from '../Citation';
+import strings from '../../i18n/all';
 
 class CladeView extends React.Component {
 
@@ -46,8 +47,8 @@ class CladeView extends React.Component {
         <div className={s.container}>
           <div className={s.content_container}>
             <ButtonToolbar className={s.controls}>
-              <Button id="editButton" type="button" bsStyle="success" onClick={(e) => this.edit(e)}>Edit</Button>
-              <Button id="returnToTreeButton" type="button" bsStyle="info" onClick={(e) => this.goBack(e)}>Return To Tree</Button>
+              <Button id="editButton" type="button" bsStyle="success" onClick={(e) => this.edit(e)}>{strings.clade.navigation.edit}</Button>
+              <Button id="returnToTreeButton" type="button" bsStyle="info" onClick={(e) => this.goBack(e)}>{strings.clade.navigation.return_to_tree}</Button>
             </ButtonToolbar>
 
             {this.props.clade.parent &&
@@ -70,15 +71,15 @@ class CladeView extends React.Component {
               </tr>
             </table>
 
-            { this.hasOtherNames() && <p className={s.alternate_names}><b>Alternate Names:</b> {this.props.clade.otherNames}</p> }
+            { this.hasOtherNames() && <p className={s.alternate_names}><b>{strings.clade.alternate}</b> {this.props.clade.otherNames}</p> }
 
-            <a href={`https://en.wikipedia.org/wiki/${this.props.clade.name}`}>Lookup In Wikipedia</a>
+            <a href={`https://en.wikipedia.org/wiki/${this.props.clade.name}`}>{strings.clade.wiki}</a>
 
             <hr />
 
             { this.props.clade.description && this.props.clade.description.length > 0
               ? <div dangerouslySetInnerHTML={{ __html: this.props.clade.description }} />
-              : <p>No description provided.</p>
+            : <p>{strings.clade.no_description}</p>
             }
 
             <div className={s.image_container}>
@@ -94,8 +95,8 @@ class CladeView extends React.Component {
 
             <hr />
             <ButtonToolbar className={s.controls}>
-              <Button id="editButton" type="button" bsStyle="success" onClick={(e) => this.edit(e)}>Edit</Button>
-              <Button id="returnToTreeButton" type="button" bsStyle="info" onClick={(e) => this.goBack(e)}>Return To Tree</Button>
+              <Button id="editButton" type="button" bsStyle="success" onClick={(e) => this.edit(e)}>{strings.clade.navigation.edit}</Button>
+              <Button id="returnToTreeButton" type="button" bsStyle="info" onClick={(e) => this.goBack(e)}>{strings.clade.navigation.return_to_tree}</Button>
             </ButtonToolbar>
           </div>
         </div>
