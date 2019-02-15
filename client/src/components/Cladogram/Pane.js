@@ -6,7 +6,7 @@ import Link from '../Link';
 import history from '../../core/history';
 import { Citation as AttributionsCitation } from '../Citation';
 import s from './Cladogram.css';
-import strings from '../../i18n/all';
+import {strings} from '../../i18n/all';
 export default class Pane extends React.Component {
 
   static propTypes = {

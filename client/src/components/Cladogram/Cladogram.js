@@ -15,7 +15,7 @@ import history from '../../core/history';
 import Pane from './Pane';
 import Search from '../../components/Search';
 import Request from '../../core/Request';
-import strings from '../../i18n/all';
+import {strings} from '../../i18n/all';
 
 const HEADER_HEIGHT = 62;
 

@@ -12,7 +12,7 @@ import s from './View.css';
 import history from '../../core/history';
 import S3 from 'common/aws/s3/Frontend';
 import { Citation as AttributionsCitation } from '../Citation';
-import strings from '../../i18n/all';
+import {strings} from '../../i18n/all';
 
 class CladeView extends React.Component {
 
