@@ -9,7 +9,6 @@ import {
   ButtonToolbar,
   Panel,
 } from 'react-bootstrap';
-import DatePicker from 'react-bootstrap-date-picker';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Signup.css';
 import Request from '../../core/Request';
@@ -215,10 +214,6 @@ class Signup extends React.Component {
 
               <FormGroup controlId="dateOfBirth">
                 <ControlLabel>Date of Birth</ControlLabel>
-                <DatePicker
-                  value={this.state.dateOfBirth}
-                  onChange={(v, f) => this.onHandleDateOfBirthChange(v, f)}
-                />
               </FormGroup>
 
               <FormGroup controlId="gender">
