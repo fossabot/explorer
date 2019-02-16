@@ -64,7 +64,7 @@ app.get('*', async(req, res, next) => {
       render(component, status = 200) {
         css = new Set();
         statusCode = status;
-        data.children = `<div>${ReactDOM.renderToString(component)}</div>`;
+	data.children = `<div>${ReactDOM.renderToString(component)}</div>`;
         data.style = [...css].join('');
         return true;
       },

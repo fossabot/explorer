@@ -45,7 +45,7 @@ export default {
     if (typeof(component) === "undefined") return component;
     return render(
       <App context={context}>>
-        {component}
+	{component}
       </App>
     );
   },
